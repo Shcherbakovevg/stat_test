@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'pip install --no-cache-dir --upgrade pip'
-        sh 'pip install --no-cache-dir -r requirements.txt'
+        sh 'pip install --no-cache-dir --upgrade pip --user'
+        sh 'pip install --no-cache-dir -r requirements.txt --user'
       }
     }
     stage('test') {
