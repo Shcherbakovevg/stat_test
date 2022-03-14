@@ -1,5 +1,5 @@
 pipeline {
-  agent { docker { image 'python:3.7.2' pip install -r requirements.txt} }
+  agent { dockerfile true}
   stages {
     stage('build') {
       steps {
