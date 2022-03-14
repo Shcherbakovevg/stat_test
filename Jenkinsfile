@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'python3 -m pytest test_stat.py'
+        sh 'python3 -m pytest --reruns 5 test_stat.py'
       }   
     }
   }
