@@ -9,7 +9,7 @@ pipeline {
   }
   post{
     failure{
-      pytest --lf, --last-failed -v
+      sh 'pytest --lf, --last-failed -v'
     }
   }
 }
