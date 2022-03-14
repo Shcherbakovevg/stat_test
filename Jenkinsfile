@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'pytest -v set +e'
+        sh 'set +e'
+        sh 'pytest -v'
       }   
     }
   }
