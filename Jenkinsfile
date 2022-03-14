@@ -8,7 +8,7 @@ pipeline {
     }
   }
   post{
-    failure{
+    always{
       sh 'pytest --last-failed -v'
     }
   }
