@@ -3,8 +3,13 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'pytest --reruns 5 -v'
+        sh 'pytest -v'
       }   
+    }
+  }
+  post{
+    failure{
+      pytest --lf, --last-failed -v
     }
   }
 }
