@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'pytest -v'
+        sh 'pytest -v set +e'
       }   
     }
   }
   post{
-    always{
+    failure{
       sh 'pytest --last-failed -v'
     }
   }
