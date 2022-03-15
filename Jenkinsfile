@@ -8,10 +8,6 @@ pipeline {
           sh 'pytest -v test_stat.py'
           }
         sh 'rm  out_report.xml'
-        sh 'rm  reportsout_report.xml '
-        sh 'rm  -r allure-results'
-        sh 'rm  -r  reports'
-        sh 'rm  -r  test-reports'
 
       }
     }  
