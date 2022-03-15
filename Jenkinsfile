@@ -5,8 +5,8 @@ pipeline {
       steps {
         echo '+++++++++++++Run test suite+++++++++++++'
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+          sh 'pytest -v test_stat.py'
           }
-        sh 'rm out_report.xml'
       }
     }  
     stage('rerun failed tests'){
