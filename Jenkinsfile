@@ -3,12 +3,16 @@ pipeline {
   stages {
     stage('test') {
       steps {
+        sh 'set +e'
         echo '====Run test suite===='
         sh 'pytest -v test_stat.py'
       }
+    }  
+    stage('Collect failed tests'){
       steps{
         sh 'cat failures'
-      }   
+      }
+
     }
     stage('rerun failed tests'){
       steps{
