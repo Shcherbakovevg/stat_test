@@ -4,10 +4,10 @@ pipeline {
     stage('test') {
       steps {
         echo '+++++++++++++Run test suite+++++++++++++'
-        sh 'mkdir reports'
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          sh 'pytest -v test_stat.py --junitxml=\\reports\\out_report.xml'
+          sh 'pytest -v test_stat.py --junitxml=\\out_report.xml'
           }
+        sh 'cat out_report.xml'
       }
     }  
     stage('rerun failed tests'){
@@ -25,7 +25,7 @@ pipeline {
   }
   post{
     always{
-      junit allowEmptyResults: true, testResults: 'reports/*.xml'
+      junit allowEmptyResults: true, testResults: '**/*.xml'
     }
   }
 }
