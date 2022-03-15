@@ -24,8 +24,7 @@ pipeline {
   }
   post{
     always{
-      sh 'mkdir test-reports'
-      junit allowEmptyResults: true, testResults: '**/test-reports/*.xml'
+      junit allowEmptyResults: true, testResults: '**/*.xml'
     }
   }
 }
