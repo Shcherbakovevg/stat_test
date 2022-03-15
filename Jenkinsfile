@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'rm -r .pytest_cache'
         echo '+++++++++++++Run test suite+++++++++++++'
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           sh 'pytest -v test_stat.py'
