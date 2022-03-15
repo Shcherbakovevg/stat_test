@@ -3,17 +3,9 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'set +e'
         sh 'pytest -v'
+        sh 'cat failures'
       }   
-    }
-  }
-  post{
-    failure{
-      sh 'pytest --last-failed -v'
-    }
-    always{
-      junit 'build/reports/**/*.xml'
     }
   }
 }
