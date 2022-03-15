@@ -21,11 +21,11 @@ pipeline {
         }
       }  
     }
-    post{
-      always{
-        sh 'mkdir allure-results'
-        allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
-      }
+  }
+  post{
+    always{
+      sh 'mkdir allure-results'
+      allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
     }
   }
 }
