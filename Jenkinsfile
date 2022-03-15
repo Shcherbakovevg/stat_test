@@ -10,8 +10,8 @@ pipeline {
   }
   post{
     failure{
-      echo ${TEST_STDERR}
-      echo ${TEST_OVERVIEW}
+      echo '${TEST_STDERR}'
+      echo '${TEST_OVERVIEW}'
       sh 'pytest --last-failed -v'
     }
   }
