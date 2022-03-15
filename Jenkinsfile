@@ -9,16 +9,18 @@ pipeline {
       }   
     }
     stage('rerun fialed tests'){
-      script{
-        if (fileExists ('failures')){
-          echo '====Rerun filed tests===='
-          sh 'pytest -v test_rerun.py'
-        }
-        else{
-          echo '====All tests are passed===='
-        }
+      steps{
+        script{
+          if (fileExists ('failures')){
+            echo '====Rerun filed tests===='
+            sh 'pytest -v test_rerun.py'
+          }
+          else{
+            echo '====All tests are passed===='
+          }
 
-      }
+        }
+      }  
     }
   }
 }
