@@ -19,15 +19,11 @@ pipeline {
     stage('rerun failed tests'){
       steps{
         script{
-          if (fileExists ('failures')){
+          while (fileExists ('failures')){
             echo '====Rerun failed tests===='
             sh 'python3 test_rerun.py'
             sh 'cat failures'
           }
-          else{
-            echo '====All tests are passed===='
-          }
-
         }
       }  
     }
