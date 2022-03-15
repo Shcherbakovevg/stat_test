@@ -20,8 +20,8 @@ pipeline {
       steps{
         script{
           if (fileExists ('failures')){
-            echo '====Rerun filed tests===='
-            sh 'pytest -v test_rerun.py'
+            echo '====Rerun failed tests===='
+            sh 'python3 test_rerun.py'
           }
           else{
             echo '====All tests are passed===='
