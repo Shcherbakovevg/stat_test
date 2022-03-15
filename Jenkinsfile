@@ -10,7 +10,7 @@ pipeline {
     }
     stage('rerun fialed tests'){
       script{
-        if (fileExists 'failures'){
+        if (fileExists ('failures')){
           echo '====Rerun filed tests===='
           sh 'pytest -v test_rerun.py'
         }
