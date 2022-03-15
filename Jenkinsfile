@@ -24,8 +24,8 @@ pipeline {
   }
   post{
     always{
-      sh 'mkdir allure-results'
-      allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+      sh 'mkdir test-reports'
+      junit allowEmptyResults: true, testResults: '**/test-reports/*.xml'
     }
   }
 }
