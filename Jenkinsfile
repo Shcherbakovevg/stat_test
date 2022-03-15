@@ -5,9 +5,8 @@ pipeline {
       steps {
         sh 'set +e'
         echo '====Run test suite===='
-        sh 'pytest -v test_stat.py'
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-          sh "exit 1"
+          sh 'pytest -v test_stat.py'
           }
       }
     }  
