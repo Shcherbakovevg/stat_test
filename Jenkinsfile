@@ -16,7 +16,7 @@ pipeline {
     }
     always{
       junit (
-       testResults: '**/surefire-reports/*.xml',
+       testResults: '/res.xml',
        testDataPublishers: [
          jiraTestResultReporter(
            configs: [
