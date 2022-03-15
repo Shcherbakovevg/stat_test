@@ -5,10 +5,12 @@ pipeline {
       steps {
         echo '====Run test suite===='
         sh 'pytest -v test_stat.py'
+      }
+      steps{
         sh 'cat failures'
       }   
     }
-    stage('rerun fialed tests'){
+    stage('rerun failed tests'){
       steps{
         script{
           if (fileExists ('failures')){
