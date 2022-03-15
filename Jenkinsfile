@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        echo '=============Run test suite============='
+        echo '+++++++++++++Run test suite+++++++++++++'
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           sh 'pytest -v test_stat.py'
           }
@@ -15,7 +15,7 @@ pipeline {
           while (fileExists ('failures')){
             echo '+++++++++++++FAILED TESTS LIST+++++++++++++'
             sh 'cat failures'
-            echo '=============Rerun failed tests============='
+            echo '+++++++++++++Rerun failed tests+++++++++++++'
             sh 'python3 test_rerun.py'
           }
         }
