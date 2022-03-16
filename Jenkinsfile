@@ -1,7 +1,7 @@
 pipeline {
   agent { dockerfile true}
   stages {
-    stage('test') {
+    stage('Run test suite') {
       steps {
         echo '+++++++++++++Run test suite+++++++++++++'
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
